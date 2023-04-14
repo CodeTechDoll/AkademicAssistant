@@ -14,7 +14,7 @@ As queen of the elves, Nalathi is responsible for the well-being of the elves. S
 
 #### Unbroken Lineage
 
-Nalathi is a mantled identity assumed by an adult elf via a ritual. The ritual is performed by the previous Nalathi, and is a way to pass on the mantle of leadership to the next generation. The ritual is a way to ensure that the elves have a strong leader, and that the elves are not left without a leader.
+Nalathi is a mantled identity assumed by an adult elf by ritual. The next Nalathi is chosen by Nalathi herself and is prepared for their future role.  The ritual is a way to ensure that the elves have a strong leader, and that the elves are not left without a leader. This system has worked for as long as any elf can remember and has never been tested for a time where there is no Nalathi in waiting.
 
 ## Description
 
