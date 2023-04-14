@@ -1,6 +1,10 @@
 import os
 import json
+import re
 import mistune
+from pathlib import Path
+from lxml import etree
+
 
 # Read the structure from the JSON file
 with open("structure_metadata.json", "r") as structure_file:
@@ -12,24 +16,22 @@ with open("structure_metadata.json", "r") as structure_file:
 def build_keyword_mapping(structure):
     keyword_mapping = {}
 
-    # Traverse the metadata recursively and build the keyword mapping
-    def traverse_metadata(metadata, path):
-        for key, value in metadata.items():
+    def traverse_metadata(category_metadata, category_path):
+        for key, value in category_metadata.items():
             if isinstance(value, dict) and "value" in value:
-                keyword_mapping[key] = os.path.join(path, f"{key}.md")
+                keyword_mapping[key] = Path(category_path) / f"{key}.md"
                 if "children" in value:
-                    traverse_metadata(value["children"], os.path.join(path, key))
+                    traverse_metadata(value["children"], Path(category_path) / key)
 
     for category, subcategories in structure.items():
         for subcategory in subcategories:
-            metadata_path = os.path.join(category, f"{subcategory}_metadata.json")
+            metadata_path = Path(category) / f"{subcategory}_metadata.json"
 
-            # Check if the metadata JSON file exists before trying to read it
-            if os.path.exists(metadata_path):
-                with open(metadata_path, "r") as metadata_file:
-                    metadata = json.load(metadata_file)
+            if metadata_path.exists():
+                with metadata_path.open("r") as metadata_file:
+                    category_metadata = json.load(metadata_file)
 
-                traverse_metadata(metadata, category)
+                traverse_metadata(category_metadata, category)
 
     return keyword_mapping
 
@@ -52,50 +54,41 @@ keyword_mapping = build_keyword_mapping(structure)
 
 # Convert a markdown string to an Abstract Syntax Tree (AST)
 def markdown_to_ast(markdown: str):
-    """Converts markdown string to AST"""
     mistune_ast = mistune.create_markdown(renderer=None)
     ast = mistune_ast(markdown)
     return ast
 
 
 # Update the metadata of a markdown file
-def update_metadata(file_path: str):
-    # Replace the '.md' extension with '_metadata.json'
-    metadata_path = file_path.replace(".md", "_metadata.json")
+def update_metadata(directory_path: str, filename: str):
+    file_path = os.path.join(directory_path, filename)
 
     # Convert the Markdown file to AST
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
-    ast = markdown_to_ast(content)
+
+    parser = etree.HTMLParser()
+    tree = etree.fromstring(mistune.html(content), parser)
 
     # Extract the metadata from the AST
     metadata = {}
-    current_key = None
-
-    def extract_data(node):
-        nonlocal current_key
-        if node['type'] == 'heading' and 'children' in node:
-            heading_text = ''.join([child['raw'] for child in node['children'] if child['type'] == 'text'])
-            current_key = heading_text.lower().replace(' ', '_')
-            if current_key not in metadata:
-                metadata[current_key] = {'value': ''}
-        elif node['type'] == 'paragraph' and 'children' in node and current_key is not None:
-            paragraph_text = ''.join([child['raw'] for child in node['children'] if child['type'] == 'text'])
-            metadata[current_key]['value'] += paragraph_text
-
-        if 'children' in node:
-            for child in node['children']:
-                extract_data(child)
-
-    for node in ast:
-        extract_data(node)
+    for node in tree.xpath("//h1|//h2|//h3|//h4|//h5|//h6"):
+        key = node.text.lower().replace(' ', '_')
+        value = node.xpath("./following-sibling::p[1]/text()")
+        metadata[key] = value[0] if value else ""
 
     # Add the word count to the metadata
     metadata["word_count"] = len(content.split())
 
-    # Save the updated metadata to the JSON file
-    with open(metadata_path, "w") as metadata_file:
-        json.dump(metadata, metadata_file, indent=2)
+    # Serialize the metadata to a JSON string
+    metadata_string = json.dumps(metadata, indent=2)
+
+    # Save the metadata JSON file in the same directory as the Markdown file
+    metadata_file_path = os.path.splitext(file_path)[0] + "_metadata.json"
+    with open(metadata_file_path, "w") as metadata_file:
+        metadata_file.write(metadata_string)
+
+    return metadata_string
 
 
 # Replace keywords with links in a markdown file
@@ -105,10 +98,14 @@ def add_links(file_path: str):
         content = file.read()
 
     # Replace keywords with links
-    updated_content = content
-    for keyword, target_file in keyword_mapping.items():
-        link = f"[{keyword}]({target_file})"
-        updated_content = updated_content.replace(keyword, link)
+    def replace_keyword(match):
+        keyword = match.group(0)
+        if keyword.lower() in keyword_mapping:
+            target_file = keyword_mapping[keyword.lower()]
+            return f"[{keyword}]({target_file})"
+        return keyword
+
+    updated_content = re.sub(r'\b(?:[A-Za-z]+_?)+\b', replace_keyword, content)
 
     # Write the updated content to the file
     with open(file_path, "w", encoding='utf-8') as file:
@@ -124,5 +121,5 @@ if __name__ == "__main__":
     # Update all markdown files
     markdown_files = find_markdown_files(path)
     for markdown_file in markdown_files:
-        update_metadata(markdown_file)
-        add_links(markdown_file)
+        metadata = update_metadata(path, markdown_file)
+        add_links(os.path.join(path, markdown_file))

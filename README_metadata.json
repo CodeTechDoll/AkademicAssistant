@@ -1,9 +1,5 @@
 {
-  "akademicassistant": {
-    "value": ""
-  },
-  "description": {
-    "value": "This is some test content for the README.md file.Your simple and friendly lore helper! Contains a few different commands to help you with your lore writing and questions."
-  },
+  "akademicassistant": "This is some test content for the README.md file.\nYour simple and friendly lore helper! Contains a few different commands to help you with your lore writing and questions.",
+  "description": "This is some test content for the README.md file.\nYour simple and friendly lore helper! Contains a few different commands to help you with your lore writing and questions.",
   "word_count": 33
 }
