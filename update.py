@@ -4,6 +4,7 @@ import re
 import mistune
 from pathlib import Path
 from lxml import etree
+from typing import Dict, Any
 
 
 # Read the structure from the JSON file
@@ -71,13 +72,20 @@ def update_metadata(directory_path: str, filename: str):
     tree = etree.fromstring(mistune.html(content), parser)
 
     # Extract the metadata from the AST
-    metadata = {}
-    for node in tree.xpath("//h1|//h2|//h3|//h4|//h5|//h6"):
-        key = node.text.lower().replace(' ', '_')
-        value = node.xpath("./following-sibling::p[1]/text()")
-        metadata[key] = value[0] if value else ""
+    def extract_metadata(node, metadata_dict):
 
-    # Add the word count to the metadata
+        if node.text and node.tag.startswith("h"):
+            key = node.text.lower().replace(' ', '_')
+            value = node.xpath("./following-sibling::p[1]/text()")
+            metadata_dict[key] = value[0] if value else ""
+            if node.text and node.tag == "h1":
+                metadata_dict["top_level_header"] = node.text
+        else:
+            for child in node.iterchildren():
+                extract_metadata(child, metadata_dict)
+
+    metadata = {}
+    extract_metadata(tree, metadata)
     metadata["word_count"] = len(content.split())
 
     # Serialize the metadata to a JSON string
@@ -88,24 +96,68 @@ def update_metadata(directory_path: str, filename: str):
     with open(metadata_file_path, "w") as metadata_file:
         metadata_file.write(metadata_string)
 
-    return metadata_string
+    return metadata
+
+
+# Write the metadata JSON file in the same directory as the Markdown file
+def write_metadata(file_path: str, metadata: Dict[str, Any]):
+    metadata_string = json.dumps(metadata, indent=2)
+    metadata_file_path = os.path.splitext(file_path)[0] + "_metadata.json"
+    with open(metadata_file_path, "w") as metadata_file:
+        metadata_file.write(metadata_string)
+
+
+# Convert a markdown string to a JSON Abstract Syntax Tree (AST)
+def markdown_to_ast_json(markdown: str):
+    ast = markdown_to_ast(markdown)
+    ast_json = json.dumps(ast, indent=2)
+    return ast_json
+
+
+# Build a mapping between headers and their respective file paths
+def build_header_mapping():
+    header_mapping = {}
+
+    for root, _, files in os.walk("."):
+        for file in files:
+            if file.endswith("_metadata.json"):
+                metadata_path = os.path.join(root, file)
+                with open(metadata_path, "r", encoding="utf-8") as f:
+                    metadata = json.load(f)
+                    top_level_header = metadata.get("top_level_header", None)
+                    if top_level_header:
+                        header_mapping[top_level_header] = os.path.join(root, file[:-len("_metadata.json")]) + ".md"
+
+    return header_mapping
+
+
+def fix_keys(metadata: Dict[str, Any]) -> Dict[str, Any]:
+    fixed_metadata = {}
+    for key, value in metadata.items():
+        fixed_key = re.sub(r'\W+', '_', key.lower())
+        fixed_metadata[fixed_key] = value
+    return fixed_metadata
 
 
 # Replace keywords with links in a markdown file
-def add_links(file_path: str):
+def add_links(file_path: str, metadata: Dict[str, Any]):
     # Read the content of the file
     with open(file_path, "r", encoding='utf-8') as file:
         content = file.read()
 
     # Replace keywords with links
-    def replace_keyword(match):
+    def replace_keyword(match, header_mapping):
         keyword = match.group(0)
-        if keyword.lower() in keyword_mapping:
-            target_file = keyword_mapping[keyword.lower()]
+        if keyword.lower() in header_mapping.keys():
+            target_file = header_mapping[keyword.lower()]
             return f"[{keyword}]({target_file})"
         return keyword
 
-    updated_content = re.sub(r'\b(?:[A-Za-z]+_?)+\b', replace_keyword, content)
+    # Build the header mapping
+    header_mapping = build_header_mapping()
+
+    # Replace keywords with links in the content
+    updated_content = re.sub(r'\b(?:[A-Za-z]+_?)+\b', lambda match: replace_keyword(match, header_mapping), content)
 
     # Write the updated content to the file
     with open(file_path, "w", encoding='utf-8') as file:
@@ -120,6 +172,20 @@ if __name__ == "__main__":
 
     # Update all markdown files
     markdown_files = find_markdown_files(path)
+
+    # Build the header mapping
+    header_mapping = build_header_mapping()
     for markdown_file in markdown_files:
-        metadata = update_metadata(path, markdown_file)
-        add_links(os.path.join(path, markdown_file))
+        file_path = os.path.join(path, markdown_file)
+
+        # Update the metadata
+        metadata = update_metadata(file_path, markdown_file)
+
+        # Fix the metadata keys
+        metadata = fix_keys(metadata)
+
+        # Write the metadata to a JSON file
+        write_metadata(file_path, metadata)
+
+        # # Add links to the markdown file
+        # add_links(file_path, metadata)
