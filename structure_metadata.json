@@ -1,6 +1,10 @@
 {
 "structure": {
-    "notable_characters": [],
+    "setting": ["overview", "history", "geography", "climate", "economy", "politics", "culture", "religion", "magic", "technology", "society"],
+    "notable_characters":["major_characters",
+    "secondary_characters",
+    { "other": ["miscellaneous", "creatures"] }
+    ],
     "lead_characters": [
     "major_characters",
     "secondary_characters",

@@ -74,7 +74,7 @@ def update_metadata(directory_path: str, filename: str):
     # Extract the metadata from the AST
     def extract_metadata(node, metadata_dict):
 
-        if node.text and node.tag.startswith("h"):
+        if node and node.text and node.tag.startswith("h"):
             key = node.text.lower().replace(' ', '_')
             value = node.xpath("./following-sibling::p[1]/text()")
             metadata_dict[key] = value[0] if value else ""
