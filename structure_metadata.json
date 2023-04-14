@@ -1,0 +1,42 @@
+{
+"structure": {
+    "characters": [
+    "main_characters",
+    "secondary_characters",
+    { "other": ["miscellaneous", "creatures"] }
+    ],
+    "locations": [
+    "cities",
+    "landmarks",
+    { "regions": ["forests", "mountains", "deserts"] }
+    ],
+    "events": ["historical_events", "current_events"],
+    "ancestry": ["angels", "demons", "humans", "elves"],
+    "factions": [
+    "corporations",
+    "guilds",
+    "military",
+    "politics",
+    "religion",
+    "magic",
+    "academia",
+    { "crime": ["occult", "organized"] }
+    ],
+    "religion": ["deities", "beliefs", "rituals"],
+    "magic": [
+    "overview",
+    { "evocation": ["overview", "spells", "rituals"] },
+    { "mana": ["overview", "spells", "rituals"] },
+    { "imbued": ["overview", "spells", "rituals"] },
+    { "enchantment": ["overview", "spells", "rituals"] }
+    ],
+    "technology": [
+    "overview",
+    "magitech",
+    "vehicles",
+    "weapons",
+    "tools",
+    "everyday"
+    ]
+}
+}
