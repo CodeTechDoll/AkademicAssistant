@@ -4,7 +4,7 @@ Nalathi, Queen of the Elves
 
 ## Ancestry
 
-Elf (Althari)
+Elf
 
 ## Role
 

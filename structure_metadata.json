@@ -1,7 +1,8 @@
 {
 "structure": {
-    "characters": [
-    "main_characters",
+    "notable_characters": [],
+    "lead_characters": [
+    "major_characters",
     "secondary_characters",
     { "other": ["miscellaneous", "creatures"] }
     ],
