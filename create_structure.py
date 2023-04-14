@@ -9,7 +9,7 @@ def create_structure(structure, parent=''):
             if isinstance(subcategory, str):
                 subcategory_dir = os.path.join(parent, category, subcategory)
                 os.makedirs(subcategory_dir, exist_ok=True)
-                
+
                 metadata_path = os.path.join(subcategory_dir, "_metadata.json")
                 if not os.path.exists(metadata_path):
                     with open(metadata_path, "w") as metadata_file:

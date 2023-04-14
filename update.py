@@ -7,6 +7,7 @@ with open("structure_metadata.json", "r") as structure_file:
     metadata = json.load(structure_file)
     structure = metadata["structure"]
 
+
 # Build a mapping between keywords and their respective file paths
 def build_keyword_mapping(structure):
     keyword_mapping = {}
@@ -32,6 +33,7 @@ def build_keyword_mapping(structure):
 
     return keyword_mapping
 
+
 # Find all markdown files in the given path
 def find_markdown_files(path):
     markdown_files = []
@@ -43,8 +45,10 @@ def find_markdown_files(path):
 
     return markdown_files
 
+
 # Build the keyword mapping
 keyword_mapping = build_keyword_mapping(structure)
+
 
 # Convert a markdown string to an Abstract Syntax Tree (AST)
 def markdown_to_ast(markdown: str):
@@ -52,6 +56,7 @@ def markdown_to_ast(markdown: str):
     mistune_ast = mistune.create_markdown(renderer=None)
     ast = mistune_ast(markdown)
     return ast
+
 
 # Update the metadata of a markdown file
 def update_metadata(file_path: str):
@@ -65,10 +70,25 @@ def update_metadata(file_path: str):
 
     # Extract the metadata from the AST
     metadata = {}
-    for node in ast['children']:
-        if node['type'] == 'yaml':
-            metadata = json.loads(node['value'].strip())
-            break
+    current_key = None
+
+    def extract_data(node):
+        nonlocal current_key
+        if node['type'] == 'heading' and 'children' in node:
+            heading_text = ''.join([child['raw'] for child in node['children'] if child['type'] == 'text'])
+            current_key = heading_text.lower().replace(' ', '_')
+            if current_key not in metadata:
+                metadata[current_key] = {'value': ''}
+        elif node['type'] == 'paragraph' and 'children' in node and current_key is not None:
+            paragraph_text = ''.join([child['raw'] for child in node['children'] if child['type'] == 'text'])
+            metadata[current_key]['value'] += paragraph_text
+
+        if 'children' in node:
+            for child in node['children']:
+                extract_data(child)
+
+    for node in ast:
+        extract_data(node)
 
     # Add the word count to the metadata
     metadata["word_count"] = len(content.split())
@@ -76,6 +96,7 @@ def update_metadata(file_path: str):
     # Save the updated metadata to the JSON file
     with open(metadata_path, "w") as metadata_file:
         json.dump(metadata, metadata_file, indent=2)
+
 
 # Replace keywords with links in a markdown file
 def add_links(file_path: str):
@@ -92,6 +113,7 @@ def add_links(file_path: str):
     # Write the updated content to the file
     with open(file_path, "w", encoding='utf-8') as file:
         file.write(updated_content)
+
 
 # Main function
 if __name__ == "__main__":
