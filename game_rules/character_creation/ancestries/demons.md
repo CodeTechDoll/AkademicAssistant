@@ -4,19 +4,6 @@
 
 Demons represent the chaotic energies of life and the Void, embodying free expression, free will, and individuality. They are associated with domains inspired by "sins" but with less negative connotations, each demon finding unique and creative ways to express their domain.
 
-### Starting Characteristics
-
-- Brawn: 2
-- Agility: 2
-- Intellect: 2
-- Cunning: 2
-- Willpower: 2
-- Presence: 3
-
-### Starting Experience
-
-Demons start with 100 experience points to spend during character creation.
-
 ### Special Abilities
 
 **Chaotic Essence**: Demons draw power from the chaotic energies of the Void. During character creation, players should determine their demon's relationship with these energies and how it influences their life and decisions.
