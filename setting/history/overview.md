@@ -44,10 +44,3 @@ The demons, on the other hand, are beings of darkness and chaos, driven by their
 Both races have been able to travel through the Void, allowing them to explore the cosmos and gather knowledge and resources. However, the Void is a dangerous place, and the angels and demons have been forced to develop powerful magitech and arcane technologies to protect themselves from the dangers of the Unknown Wastes.
 
 Unfortunately and for unknown reasons over time, the ability to travel through the Void has either been lost or become an extremely well-guarded secret, known only to the highest and most powerful members of the angelic and demonic factions. This has led to a delicate balance of power between the races, as they vie for control over the planet's resources and secrets, all while contending with the ever-present dangers of the Unknown Wastes and the chaotic mana swarms that surround them.
-
-### The Dreamer
-
-The Dreamer is a mysterious figure who has been influencing the course of Thalean history for centuries. The Dreamer is a powerful mage who has been able to manipulate the mana swarms of the Unknown Wastes, allowing them to take on the form of a massive, sentient starship. The Dreamer has used this starship to travel across the cosmos, gathering knowledge and resources, and returning to Thalea to share them with the inhabitants of the planet.
-
-The Dreamer has also been able to influence the course of history, using their knowledge and power to guide the actions of key figures throughout Thalean history. The Dreamer has also been able to influence the course of history, using their knowledge and power to guide the actions of key figures throughout Thalean history. The Dreamer has also been able to influence the course of history, using their knowledge and power to guide the actions of key figures throughout Thalean history.
-
