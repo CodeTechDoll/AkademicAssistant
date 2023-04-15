@@ -6,21 +6,6 @@
 
 Angels in Aelysia are bound by duty to the "Voice" of their god and follow the religious order known as the "Angelic Choir." They are organized into various Orders, each led by an Archangel, and possess unique abilities that reflect their domains. Angels are known for their majestic and awe-inspiring appearance.
 
-### Starting Characteristics
-
-- Brawn: 2
-- Agility: 2
-- Intellect: 2
-- Cunning: 2
-- Willpower: 2
-- Presence: 3
-- Wound Threshold: 10 + Brawn
-- Strain Threshold: 10 + Willpower
-
-### Starting Experience
-
-Angels start with 100 experience points to spend during character creation.
-
 ### Special Abilities
 
 **Divine Hierarchy**: Angels are bound by a divine hierarchy that influences their actions and decision-making. When an angel is given an order by a higher-ranking angel, they receive a number of setback dice on any check to resist that order equal to the difference in presence between the two angels. This represents the weight of divine authority and the difficulty for lower-ranking angels to defy their superiors.

@@ -4,21 +4,6 @@
 
 Elves in Aelysia are known for their enhanced senses, fortitude, and adaptability. They value community and interconnectedness and are divided into different racial groups based on ear orientation. Elves can be found in various walks of life within the city and have a deep connection to nature and the unknown wastes.
 
-## Starting Characteristics
-
-- Brawn: 2
-- Agility: 3
-- Intellect: 2
-- Cunning: 2
-- Willpower: 1
-- Presence: 2
-- Wound Threshold: 10 + Brawn
-- Strain Threshold: 10 + Willpower
-
-## Starting Experience
-
-Elves start with 90 experience points to spend during character creation.
-
 ## Special Abilities
 
 **Enhanced Senses**: Elves gain one free rank in the Perception skill and can remove one setback die imposed due to environmental conditions when making a Perception check.
@@ -33,7 +18,7 @@ Players can choose their character's elven race based on ear orientation. Each r
 
 ### High Elves
 
-Focused on intellectual pursuits and grace, high elves gain one free rank in the Knowledge (Education) skill and one free rank in the Cool skill.
+Focused on intellectual pursuits and grace, high elves gain one free rank in a Knowledge skill and one free rank in the Cool skill.
 
 ### Wood Elves
 
