@@ -4,8 +4,6 @@
 
 Humans in Aelysia are known for their adaptability, ingenuity, and ambition. They possess a mana-infused physique, which grants them resilience and allows them to thrive in diverse environments. Their society is highly stratified, with various subcultures reflecting the wide range of cultures and ethnicities within the human race.
 
-Humans start with 110 experience points to spend during character creation.
-
 ## Special Abilities
 
 *Pick two of the following abilities:*
