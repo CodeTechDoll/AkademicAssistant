@@ -36,7 +36,7 @@ Angels of the Mercy Order gain a single boost die on Medicine checks.
 
 #### Strength
 
-Angels of the Strength Order gain a single boost die on Brawl and Melee checks.
+Angels of the Strength Order gain a single boost die on Athletics checks.
 
 #### Beauty
 
