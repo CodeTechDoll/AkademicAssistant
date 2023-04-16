@@ -14,10 +14,6 @@ Angels in Aelysia are bound by duty to the "Voice" of their god and follow the r
 
 **Angelic Choir**: Angels belong to one of the Orders within the Angelic Choir. During character creation, players choose their angel's Order, which provides unique abilities and skills based on their domain.
 
-### Angelic Orders
-
-Players can choose their character's Angelic Order, granting them unique abilities and skills associated with their Order's domain:
-
 #### The Crown
 
 Angels of the Crown Order gain a single boost die on Leadership checks.
