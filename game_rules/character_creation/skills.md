@@ -83,10 +83,6 @@ Shoot with a ranged weapon
 
 Climb up or down a structure, swim, jumping, run for extended time.
 
-### Computers (INT)
-
-Pick electronic lock, crack encryption, hack database, remote pilot.
-
 ### Cool (PRE)
 
 Aware initiative, lay a trap or ambush, stay calm in social situations, refrain from foolishness during tense situation, keep their nerve, card games with bluffing, luck, and gambling.
@@ -103,7 +99,11 @@ Confront something terrifying and not flee, keep sanity, heal strain after encou
 
 Bring vehicle to safe stop, keep up speed during dangerous driving, catch up with someone, swerve to avoid accident.
 
-### Mechanics (INT)
+### MagiComp (INT) (Replaces Computers)
+
+Pick magic locks, crack spellwalls, hack scroll sanctums, remote operate.
+
+### MagiTech (INT) (Replaces Mechanics)
 
 Repair something damaged, identify required parts and tools for a job, design new device, sabotage, build or modify item, install implants.
 
