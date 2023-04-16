@@ -14,8 +14,6 @@ Humans in Aelysia are known for their adaptability, ingenuity, and ambition. The
 
 **Ready for Anything**: Humans are prepared for any situation. They start with one rank in any two career skills of their choice.
 
-### Skills
-
 ## Subcultures
 
 Players can choose to have their human character be part of a specific subculture or can create their own unique background. The following are examples of human subcultures in Aelysia:
