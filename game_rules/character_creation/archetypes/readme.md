@@ -10,7 +10,11 @@ If you're looking to create a custom archetype for your character, you can do so
 
 1. **Choose a Theme**: First, choose a theme for your archetype. This can be anything from a specific profession or role to a particular personality trait or skill. For example, you might choose the theme of "Magical Researcher" or "Mercenary".
 
-2. *Buy Characteristics*: Next, using a pool of experience no more than 175, increase your character's characteristics to reflect the theme of your archetype. For example, if you chose the theme of "Magical Researcher", you might increase your character's Intellect characteristic to 3 and your Presence characteristic to 2. All characteristics start at 1. Your strain threshold is equal to 10 + your character's Brawn characteristic. Your wound threshold is equal to 10 + your character's Willpower characteristic. These can be adjust up to 2 in either direction so long as the other is adjusted in equal proportion.
+2. *Buy Characteristics*: Next, using a pool of experience no more than 220, increase your character's characteristics to reflect the theme of your archetype. For example, if you chose the theme of "Magical Researcher", you might increase your character's Intellect characteristic to 3 and your Presence characteristic to 2. All characteristics start at 1. Your strain threshold is equal to 10 + your character's Brawn characteristic. Your wound threshold is equal to 10 + your character's Willpower characteristic. These can be adjust up to 2 in either direction so long as the other is adjusted in equal proportion.
+
+```
+Tip: Remember, to buy a Characteristic advance, the cost is 10*the rank that you are increasing to so going from 1 to 2 costs 20 exp and 2 to 3 costs 30 exp! Don't forget you can't exceed 5~
+``` 
 
 3. *Buy Abilities*: Next, using a pool of experience no more than 100, increase your character's abilities to reflect the theme of your archetype. For example, if you chose the theme of "Magical Researcher", you might increase your character's Knowledge (Arcana) ability to 3 and your Knowledge (Xenology) ability to 2. All abilities start at 1. You are also allowed at only this time to increase the base values of your Strain and Wound Thresholds for 10 experience per point.
 
