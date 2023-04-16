@@ -57,9 +57,3 @@ Angels of the Foundation Order gain a single boost die on Mechanics checks.
 #### Mortals
 
 Angels of the Mortals Order gain a single boost die on Negotiation checks.
-
-### Angelic Abilities
-
-In addition to their Order-specific abilities, all angels possess minor abilities or traits shared across all Orders, such as:
-
-- Divine Presence: Angels can spend a maneuver to radiate an aura of divine presence that instills awe and reverence in those who behold them. This aura can provide a boost die on social skill checks or impose a setback die on hostile actions targeting the angel, at the GM's discretion.
