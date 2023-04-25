@@ -6,7 +6,7 @@ Welcome to the Character Creation folder for the Aelysia setting in the Genesys 
 
 This folder contains the following files and subfolders:
 
-1. `ancestries`: This folder outlines the various ancestries and their unique traits, abilities, and starting characteristics in the Aelysia setting. Choose a ancestry that resonates with your character concept and helps you immerse yourself in the world of Aelysia.
+1. `ancestries`: This folder outlines the various ancestries and their unique traits, abilities, and starting characteristics in the Aelysia setting. Choose a ancestry that resonates with your character concept and helps you immerse yourself in the world of Aelysia. Ancestry doesn't exist? Trying to make your cool custom one? Just ask the GM and we can make it happen!
 
 2. `careers.md`: This folder presents a list of careers that are specific to the Aelysia setting. Careers represent your character's occupation, background, or area of expertise. Select a career that fits your character's narrative and provides a foundation for their skills and talents.
 

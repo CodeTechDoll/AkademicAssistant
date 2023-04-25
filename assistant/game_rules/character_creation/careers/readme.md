@@ -12,6 +12,8 @@ Then, choose 4 more, and you…
 - …can't have more than 3 knowledge skills
 - …can't have more than 2 additional general skills
 
+Once you've chosen a total of 8 skills, pick 4 and rank them up by 1.
+
 ## Sample Careers
 
 ### Corporate Careers

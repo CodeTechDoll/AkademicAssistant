@@ -14,10 +14,6 @@ Angels in Aelysia are bound by duty to the "Voice" of their god and follow the r
 
 **Angelic Choir**: Angels belong to one of the Orders within the Angelic Choir. During character creation, players choose their angel's Order, which provides unique abilities and skills based on their domain.
 
-### Angelic Orders
-
-Players can choose their character's Angelic Order, granting them unique abilities and skills associated with their Order's domain:
-
 #### The Crown
 
 Angels of the Crown Order gain a single boost die on Leadership checks.
@@ -57,9 +53,3 @@ Angels of the Foundation Order gain a single boost die on Mechanics checks.
 #### Mortals
 
 Angels of the Mortals Order gain a single boost die on Negotiation checks.
-
-### Angelic Abilities
-
-In addition to their Order-specific abilities, all angels possess minor abilities or traits shared across all Orders, such as:
-
-- Divine Presence: Angels can spend a maneuver to radiate an aura of divine presence that instills awe and reverence in those who behold them. This aura can provide a boost die on social skill checks or impose a setback die on hostile actions targeting the angel, at the GM's discretion.

@@ -16,7 +16,7 @@ If you're looking to create a custom archetype for your character, you can do so
 Tip: Remember, to buy a Characteristic advance, the cost is 10*the rank that you are increasing to so going from 1 to 2 costs 20 exp and 2 to 3 costs 30 exp! Don't forget you can't exceed 5~
 ``` 
 
-3. *Buy Abilities*: Next, using a pool of experience no more than 100, increase your character's abilities to reflect the theme of your archetype. For example, if you chose the theme of "Magical Researcher", you might increase your character's Knowledge (Arcana) ability to 3 and your Knowledge (Xenology) ability to 2. All abilities start at 1. You are also allowed at only this time to increase the base values of your Strain and Wound Thresholds for 10 experience per point.
+3. *Buy Abilities*: Next, using a pool of experience no more than 100 + whatever remains from increasing your Characteristics, increase your character's abilities to reflect the theme of your archetype. For example, if you chose the theme of "Magical Researcher", you might increase your character's Knowledge (Arcana) ability to 3 and your Knowledge (Xenology) ability to 2. All abilities start at 1. You are also allowed at only this time to increase the base values of your Strain and Wound Thresholds for 10 experience per point.
 
 ## Examples and Ideas
 

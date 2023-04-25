@@ -54,4 +54,3 @@ Players can choose their character's domain, granting them unique abilities and 
 In addition to their domain-specific abilities, all demons possess minor abilities or traits shared across all domains, such as:
 
 - Void Connection: Demons can draw on the chaotic energies of the Void to enhance their abilities. Once per session, a demon can add a boost die to any skill check related to their domain.
-- Demonic Resilience: Demons are resistant to the effects of the Void, granting them a rank in the Resilience skill (this does not stack with the rank from the Wrath domain).
